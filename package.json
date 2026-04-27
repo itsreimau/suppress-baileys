@@ -1,6 +1,6 @@
 {
   "name": "@itsreimau/suppress-baileys",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Just to suppress the annoying Baileys error log",
   "main": "index.js",
   "author": "Reimau von Lilitz",

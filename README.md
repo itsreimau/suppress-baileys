@@ -34,7 +34,8 @@ const sock = makeWASocket(...);
 
 Special thanks to:
 
-- [Liaaa](https://github.com/itsliaaa)
+- [Lia Wynn](https://github.com/itsliaaa)
+- [kiuur](https://github.com/kiuur)
 - All contributors and users
 
 ## 📄 License
