@@ -56,13 +56,11 @@ const containsAny = (str, patterns) => patterns.some(p => str.includes(p));
 
 const getErrorMessage = (reason) => String(reason?.message || reason || "").trim();
 
-const handleExit = (error, context) => {
+const handlerError = (error, context) => {
     const message = getErrorMessage(error);
 
     if (containsAny(message, IGNORED_ERRORS)) return;
     if (!containsAny(message, FATAL_ERROR_KEYWORDS)) return;
-
-    process.exit(1);
 };
 
 process.on("unhandledRejection", (reason) => {
@@ -71,7 +69,7 @@ process.on("unhandledRejection", (reason) => {
     if (containsAny(message, IGNORED_ERRORS)) return;
 
     console.error("Unhandled Rejection:", reason);
-    handleExit(reason, "unhandledRejection");
+    handlerError(reason, "unhandledRejection");
 });
 
 process.on("uncaughtException", (error) => {
@@ -83,7 +81,7 @@ process.on("uncaughtException", (error) => {
         console.error("Uncaught Exception:", error);
     }
 
-    handleExit(error, "uncaughtException");
+    handlerError(error, "uncaughtException");
 });
 
 process.on("warning", (warning) => {
